@@ -1,0 +1,10 @@
+api_key.txt
+mule_log_*.md
+__pycache__/
+*.pyc
+.env
+venv/
+.vscode/*.db
+.vscode/*.db-shm
+.vscode/*.db-wal
+.vscode/ipch/
