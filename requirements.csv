@@ -1,0 +1,35 @@
+req_id	category	threshold	unit	logic_trigger	description,category,threshold,unit,logic_trigger,description
+MECH-TOW-01	ME	250	lbs	tow,haul,weight,payload,load	Payload Capacity: 250 lbs net cargo weight.,Payload Capacity: 250 lbs net cargo weight.
+MECH-FRAME-01	ME	1	inch	steel,tube,frame,chassis	Structural standard: Square steel tubing size.,"steel,tube,frame,chassis",Structural standard: Square steel tubing size.
+MECH-TORQ-01	ME	85	percent	torque,stall,motor,hill,incline	Max motor stall torque sufficient for 250 lbs at 5 degrees or Unloaded at 10 degrees.,Max motor stall torque allowed on 20-degree inclines.
+ELEC-BUS-MAIN	ME	24	V	battery,bus,primary,dc,voltage	Main system drive bus voltage (2x12V Series).,Main system drive bus voltage (2x12V Series).
+ELEC-BRK-MAIN	ME	80	A	breaker,main,protection,amperage,current	Master Circuit Breaker rating.,Master Circuit Breaker rating.
+ELEC-FUSE-MOT	ME	40	A	motor,fuse,controller,drive	Individual fuse rating for motor controllers.,"motor,fuse,controller,drive",Individual fuse rating for motor controllers.
+ELEC-FUSE-JET	ME	3	A	jetson,fuse,compute,brain	Slow-blow fuse rating for Jetson power rail.,"jetson,fuse,compute,brain",Slow-blow fuse rating for Jetson power rail.
+ELEC-FUSE-5V	ME	7.5	A	buck,sensors,5v,fuse	Fuse rating for the 5V Buck Converter rail.,"buck,sensors,5v,fuse",Fuse rating for the 5V Buck Converter rail.
+ELEC-FUSE-SAFE	ME	2	A	safety,loop,estop,fuse	Fuse rating for the E-Stop Safety Loop Start.,"safety,loop,estop,fuse",Fuse rating for the E-Stop Safety Loop Start.
+ELEC-JET-IN	ME	19	V	jetson,input,power,ovp	Target DC input voltage for Jetson via OVP Crowbar.,"jetson,input,power,ovp",Target DC input voltage for Jetson via OVP Crowbar.
+PCB-TRACE-HV	ME	4	mm	trace,width,pcb,copper,power	Min trace width for 24V high-current lines.,Min trace width for 24V high-current lines.
+PCB-KEEPOUT	ME	2	mm	keepout,isolation,clearance,gap	Min isolation gap between HV and Logic sections.,"keepout,isolation,clearance,gap",Min isolation gap between HV and Logic sections.
+NAV-RTK-ACC	SW	2.5	cm	rtk,precision,fixed,accuracy,error	Max allowable positional error for navigation tasks.,Max allowable positional error for navigation tasks.
+NAV-LINK-FREQ	SW	915	MHz	lora,radio,link,frequency,telemetry	Required frequency for RTK Correction Sub-Link.,Required frequency for RTK Correction Sub-Link.
+SOFT-LAT-MAX	SW	50	ms	latency,lag,reflex,heartbeat,delay	Max sensor-to-actuator latency for safety reflexes.,Max sensor-to-actuator latency for safety reflexes.
+SOFT-PWM-HB	SW	1000	Hz	pwm,heartbeat,frequency,pulse	Required frequency for Jetson-to-ESP32 safety heartbeat.,"pwm,heartbeat,frequency,pulse",Required frequency for Jetson-to-ESP32 safety heartbeat.
+SOFT-COMP-MAX	SW	85	percent	utilization,cpu,gpu,overhead,load	Max compute load on Orin Nano.,Max compute load on Orin Nano.
+SENS-US-QTY	SW	5	count	ultrasonic,sonar,sensors,array	Required number of ultrasonic sensors (Master Design Doc II).,"ultrasonic,sonar,sensors,array",Required number of ultrasonic sensors (Master Design Doc II).
+MECH-INCLINE-01	ME	10	degrees	incline,grade,slope,torque,stability	Max operational incline: 10 degrees (Mowing Mode / No Payload).,The system must maintain full load capacity while navigating a 10 degree incline.
+MECH-BRAKE-STATIC	ME	250	lbs	brake,static,holding,slope	Automated braking system capable of holding 250 lbs on a 5-degree incline without power.,"brake,static,holding,slope",Automated braking system capable of holding 250 lbs on a 20° incline without power.
+SW-TRACTION-01	SW	1	active	traction,slip,torque,control	Active slip detection to adjust motor torque in real-time on loose soil, wet grass, or gravel.
+MECH-COG-01	ME	15	deg	stability,cog,lateral,tip	Maintain low Center of Gravity to prevent tipping on lateral slopes up to 15°.,"stability,cog,lateral,tip",Maintain low Center of Gravity to prevent tipping on lateral slopes up to 15°.
+MECH-BED-01	ME	1440	sq_inch	bed,dims,modular,"mounting	Bed dimensions min 48"" L x 30"" W with integrated Aegis modular mounting points.","bed,dims,modular,mounting","Bed dimensions min 48"" L x 30"" W with integrated Aegis modular mounting points."
+ELEC-RUNTIME-01	ME	2	hours	runtime,duty,heavy,battery,hauling	Minimum 2 hours of continuous operation (carrying 250 lbs on flat terrain).,Minimum 2 hours of continuous operation (carrying 250 lbs on flat terrain).
+ELEC-CHARGE-01	ME	6	hours	charge,docking,recharge	Support for automated docking with 0% to 100% recharge time < 6 hours.,hours,"charge,docking,recharge",Support for automated docking with 0% to 100% recharge time < 6 hours.
+SW-NAV-DYNAMIC	SW	1	active	pathing,dynamic,unstructured,navigation	Ability to navigate non-linear, unstructured outdoor environments (gardens, orchards).
+SW-SENSE-CLEAR	SW	2	inch	clearance,lidar,vision,obstacle	Sensor suite must detect and avoid objects as small as 2 inches in height.,"clearance,lidar,vision,obstacle",Sensor suite must detect and avoid objects as small as 2 inches in height.
+ELEC-RUNTIME-MOW	ME	4	hours	runtime,mowing,endurance,battery	Minimum 4 hours of continuous operation in Mowing Mode.,"runtime,mowing,endurance,battery",Minimum 4 hours of continuous operation in Mowing Mode.
+NAV-SCALE-01	SW	2	acres	navigation,scale,area,coverage	Navigation stack and battery capacity optimized for properties up to 2 acres.,"navigation,scale,area,coverage",Navigation stack and battery capacity optimized for properties up to 2 acres.
+NAV-PRECISION-01	SW	2.5	cm	gnss,rtk,precision,accuracy,positioning	Horizontal precision via Dual-band RTK-GNSS.,Horizontal precision via Dual-band RTK-GNSS.
+MECH-BOLT-FRAME	ME	24	Nm	bolt,torque,frame,chassis,fastener	Torque spec for Main Frame M8 x 1.25 Grade 8.8 bolts (Internal Crush Sleeve required).,Torque spec for Main Frame M8 x 1.25 Grade 8.8 bolts (Internal Crush Sleeve required).
+MECH-BOLT-DECK	ME	10	Nm	bolt,torque,deck,poly,fastener	Torque spec for Mower Deck M6 x 1.0 Grade 8.8 bolts (Fender Washers required).,Torque spec for Mower Deck M6 x 1.0 Grade 8.8 bolts (Fender Washers required).
+SW-MIC-AUTO	SW	1	bool	mic,privacy,noise,optimization,sensor_fusion	Microphone array must automatically disable when mowing blades or high-draw motors are active.,Microphone array must automatically disable when mowing blades or high-draw motors are active.
+MECH-INCLINE-TOW	ME	5	degrees	tow,haul,incline,slope,grade	Max operational incline: 5 degrees while towing 250 lbs.,

@@ -1,0 +1,1 @@
+sudo sh -c 'echo -1 > /sys/module/usbcore/parameters/autosuspend'

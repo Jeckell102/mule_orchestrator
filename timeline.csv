@@ -1,0 +1,6 @@
+Phase,Task,StartDate,EndDate,Status
+1,Design,2023-01-01,2023-01-15,COMPLETE
+2,Procurement,2023-01-16,2023-02-15,COMPLETE
+3,Assembly,2023-02-16,2023-02-28,COMPLETE
+4,System Integration & Test,2023-03-01,2023-03-10,IN PROGRESS
+5,Deployment,2023-03-11,2023-03-15,PENDING

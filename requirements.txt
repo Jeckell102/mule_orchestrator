@@ -1,0 +1,4 @@
+# MuleLab Dependencies
+google-genai    # Interaction with Gemini 2.0/1.5 Models
+pandas          # Data manipulation and CSV-to-DB syncing
+sqlite3         # Standard library (included, but good for tracking)

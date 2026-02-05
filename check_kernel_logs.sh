@@ -1,0 +1,1 @@
+sudo dmesg -w | grep -i -E 'usb|hid|logitech'

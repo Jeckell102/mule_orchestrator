@@ -8,3 +8,4 @@ venv/
 .vscode/*.db-shm
 .vscode/*.db-wal
 .vscode/ipch/
+node_modules/

@@ -1,0 +1,5 @@
+- Function: Autonomous cargo transport
+- Payload: 50kg
+- Max Speed: 2 m/s
+- Operational Runtime: 4 hours
+- Key Performance Parameter (KPP): Amperage draw under max load must not exceed 15A. <--- FAILED

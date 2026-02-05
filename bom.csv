@@ -1,0 +1,7 @@
+PartNumber,Component,Cost,Status
+P-001,Chassis,150.00,PROCURED
+P-002,Motor,75.00,PROCURED
+P-003,Motor Controller,120.00,PROCURED
+P-004,Power Distribution Board,80.00,PROCURED
+P-005,CPU,200.00,PROCURED
+P-006,Sensor Array,175.00,PROCURED

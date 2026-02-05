@@ -1,0 +1,17 @@
+TIMESTAMP: 2026-02-02 07:45:52.068953
+USER: The unit failed amperage draw. Need plan, code, specs, and test.
+EXPERT_PATH:  ➔ PE ➔ SW
+--- RESPONSE ---
+OK. I need more information to create a plan, code, specs, and test for the amperage draw issue. Please provide the following:
+
+1.  **Device Specifications:** What is the expected amperage draw of the unit? What is the maximum allowed amperage draw? What components are contributing to the amperage draw?
+2.  **Operating Conditions:** Under what conditions was the amperage draw measured? (e.g., idle, full load, specific tasks running). What is the input voltage? What is the ambient temperature?
+3.  **Hardware Details:** What microcontroller/processor is being used? What sensors and peripherals are connected? A block diagram would be helpful.
+4.  **Software Details:** What operating system is being used? What software is running on the device? Are there any specific software modules that are suspected to be contributing to the high amperage draw?
+5.  **Measurement Setup:** How was the amperage draw measured? What equipment was used? What was the sampling rate?
+6.  **Failure Details:** What was the actual amperage draw measured during the failure? How often does the failure occur?
+
+Once I have this information, I can create a plan to debug the issue, write code to monitor and control the amperage draw, create specifications for the system, and develop a test plan to ensure that the issue is resolved.
+
+
+[Expert Path:  ➔ PE ➔ SW] [Model: FAST]

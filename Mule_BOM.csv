@@ -1,0 +1,6 @@
+Part Number,Description,Supplier,Unit Cost,Quantity,Total Cost
+MOTOR-001,High-Torque DC Motor,RoboParts,150,4,600
+CTRL-002,Motor Controller 20A,PowerSys,120,4,480
+BATT-003,LiPo Battery 24V 10Ah,VoltVortex,200,2,400
+PDB-001,Power Distribution Board,MuleCustom,75,1,75
+CPU-001,Embedded Control Unit,ChipCo,250,1,250

@@ -1,0 +1,6 @@
+Timestamp,Prompt,Expected,Actual,Status,Failure_Reason,Auto_Patch_Action
+2026-02-02 06:51:19.824338,"The unit failed amperage draw. Need plan, code, specs, and test.","['PM', 'SW', 'ME', 'QA']", ➔ PE ➔ SW,FAIL,"Missing: ['PM', 'ME', 'QA']","Tightening delegation rules in pe.txt to catch Missing: ['PM', 'ME', 'QA']"
+2026-02-02 06:51:53.526667,"The unit failed amperage draw. Need plan, code, specs, and test.","['PM', 'SW', 'ME', 'QA']", ➔ PE ➔ PM,FAIL,"Missing: ['SW', 'ME', 'QA']","Tightening delegation rules in pe.txt to catch Missing: ['SW', 'ME', 'QA']"
+2026-02-02 06:52:26.179973,"The unit failed amperage draw. Need plan, code, specs, and test.","['PM', 'SW', 'ME', 'QA']", ➔ PE ➔ PM,FAIL,"Missing: ['SW', 'ME', 'QA']","Tightening delegation rules in pe.txt to catch Missing: ['SW', 'ME', 'QA']"
+2026-02-02 07:45:52.069388,"The unit failed amperage draw. Need plan, code, specs, and test.","['PM', 'SW', 'ME', 'QA']", ➔ PE ➔ SW,FAIL,"Missing: ['PM', 'ME', 'QA']","Tightening delegation rules in pe.txt to catch Missing: ['PM', 'ME', 'QA']"
+2026-02-02 07:46:27.214611,"The unit failed amperage draw. Need plan, code, specs, and test.","['PM', 'SW', 'ME', 'QA']", ➔ PE ➔ PM,FAIL,"Missing: ['SW', 'ME', 'QA']","Tightening delegation rules in pe.txt to catch Missing: ['SW', 'ME', 'QA']"

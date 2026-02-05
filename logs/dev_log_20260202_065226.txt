@@ -1,0 +1,16 @@
+TIMESTAMP: 2026-02-02 06:52:26.179752
+USER: The unit failed amperage draw. Need plan, code, specs, and test.
+EXPERT_PATH:  ➔ PE ➔ PM
+--- RESPONSE ---
+**Project Management Analysis Failure**
+
+I have attempted to access the following essential project files and all are missing:
+*   `Mule_BOM_rev2.xlsx`
+*   `Mule_Timeline.xlsx`
+*   `Mule_Budget.xlsx`
+
+Without these sources of truth, I am unable to fulfill my primary function. I cannot assess the impact of the recent rework on the project's schedule or budget. Any estimate provided would be a guess, violating my core directive for precision.
+
+Project status is unknown. Analysis is blocked pending availability of project documentation.
+
+[Expert Path:  ➔ PE ➔ PM] [Model: PRO]

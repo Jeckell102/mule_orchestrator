@@ -1,0 +1,77 @@
+TIMESTAMP: 2026-02-02 06:51:19.823842
+USER: The unit failed amperage draw. Need plan, code, specs, and test.
+EXPERT_PATH:  ➔ PE ➔ SW
+--- RESPONSE ---
+Okay, I need more information to create a plan, code, and test to address the unit's excessive amperage draw.  Specifically, I need the following:
+
+1.  **Unit Specifications:** What is the expected amperage draw under normal operating conditions? What is the maximum allowed amperage draw? What components are drawing the most current?
+2.  **Operating Conditions:** Under what conditions was the high amperage draw observed (e.g., idle, full load, specific tasks)?
+3.  **Hardware Details:** What hardware platform are we working with? (e.g., Jetson, Raspberry Pi, custom board). Please provide details on the power supply and any relevant components connected to the failing unit.
+4.  **Software Stack:** What software is running on the unit? Is it a custom application, ROS 2 application, or something else?
+5.  **Programming Language**: Is this a Python, C++, or mixed environment?
+
+Once I have this information, I can create a plan to diagnose the issue, write code to monitor power consumption, and design a test procedure to verify the fix.
+
+As an example, let's assume we have a Python-based embedded system on a Raspberry Pi, and we want to log the amperage draw to a file. Here's a basic outline. I'll need the specifics to make this fully functional.
+
+First, a Python script to log data (assumes you have a way to read amperage using an external sensor and appropriate libraries - replace placeholders accordingly):
+
+```python
+import time
+import datetime
+
+def get_amperage():
+    # Placeholder: Replace with your actual amperage reading function.
+    # This might involve reading from an ADC, I2C sensor, etc.
+    # Example: return read_from_sensor()
+    return 0.5  # Dummy value for now
+
+def log_amperage(filename="amperage_log.txt"):
+    try:
+        while True:
+            current_time = datetime.datetime.now().isoformat()
+            amperage = get_amperage()
+            log_entry = f"{current_time} - Amperage: {amperage:.3f} A\n"
+
+            try:
+                with open(filename, "a") as f:
+                    f.write(log_entry)
+            except Exception as e:
+                print(f"Error writing to log file: {e}")
+
+            time.sleep(1)  # Log every 1 second.  Adjust as needed.
+
+    except KeyboardInterrupt:
+        print("Logging stopped.")
+
+if __name__ == "__main__":
+    log_amperage()
+```
+
+This script provides a starting point for logging amperage.
+
+Next, I'll create a simple test plan example:
+
+**Test Plan:**
+
+1.  **Objective:** Verify that the unit's amperage draw is within the specified limits under various operating conditions.
+2.  **Equipment:**
+    *   Power supply
+    *   Digital multimeter or current clamp
+    *   (If applicable) Load emulator
+    *   SD card (if logging data)
+3.  **Procedure:**
+    *   Connect the unit to the power supply.
+    *   Boot the unit and let it idle for 5 minutes. Record the average amperage draw.
+    *   Run a specific task (e.g., processing data, running a motor). Record the amperage draw during the task.
+    *   Repeat the task multiple times, varying the load (if applicable). Record the amperage draw for each load level.
+    *   Analyze the logged data to identify any spikes or excessive amperage draw.
+4.  **Acceptance Criteria:**
+    *   The amperage draw during idle should be below \[*Specify Value*] A.
+    *   The amperage draw during the task should be below \[*Specify Value*] A.
+    *   No unexpected amperage spikes should be observed.
+
+Again, this is a template. Provide the specific details so I can adjust the code and test plan.
+
+
+[Expert Path:  ➔ PE ➔ SW] [Model: FAST]

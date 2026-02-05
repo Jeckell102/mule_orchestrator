@@ -1,0 +1,38 @@
+# System Electrical & Thermal Specifications
+#
+# All values must be filled in by the responsible Electrical Engineer (EE).
+# These values are CRITICAL for system safety validation.
+# Do not proceed with testing until this document is complete and approved.
+#
+# QA Lead: Murphy
+# Date: 2024-03-09
+#
+# --- POWER SYSTEM ---
+# MOTOR_NOMINAL_VOLTAGE_V: 
+# POWER_SUPPLY_MAX_VOLTAGE_V: 
+# POWER_SUPPLY_MAX_CURRENT_A: 
+#
+# --- CURRENT LIMITS (AMPS) ---
+# # Absolute maximum current the hardware can tolerate, even momentarily.
+# # Exceeding this risks immediate component damage.
+# ABSOLUTE_MAX_CURRENT_A: 
+#
+# # Peak current expected during startup or under heavy load (e.g., stall).
+# # This should be a transient value.
+# PEAK_MOTION_CURRENT_A: 
+#
+# # Expected current draw when the system is idle (powered on but not moving).
+# IDLE_CURRENT_A:
+#
+# --- THERMAL ---
+# # Maximum ambient temperature the unit is designed to operate in.
+# MAX_OPERATING_TEMP_C: 
+#
+# # Derating factor for current at max operating temperature. 
+# # E.g., at MAX_OPERATING_TEMP_C, max safe current is ABSOLUTE_MAX_CURRENT_A * (1 - THERMAL_DERATING_FACTOR)
+# THERMAL_DERATING_FACTOR: 
+#
+# --- HARDWARE INTERFACE (CONFIRMATION) ---
+# # These values are currently placeholders in the software. They must be confirmed.
+# CURRENT_SENSOR_I2C_ADDRESS: "Confirm: 0x40 or specify correct"
+# MOTOR_ENABLE_GPIO_PIN: "Confirm: 18 or specify correct"
