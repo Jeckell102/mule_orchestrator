@@ -1,6 +1,0 @@
-# Initialize quantitative targets from MRD
-
-sqlite3 logs/mule_results.db "DELETE FROM validation_thresholds;"
-sqlite3 logs/mule_results.db "INSERT INTO validation_thresholds (parameter, target_value, unit, specialist) VALUES ('rtk_accuracy', 2.5, 'cm', 'SW'), ('tow_capacity', 250.0, 'lbs', 'ME');"
-python3 mule.py start -r 3
-python3 visualize.py
