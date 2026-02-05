@@ -2,8 +2,8 @@ import sqlite3
 import os
 
 # --- CONFIGURATION ---
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-DB_PATH = os.path.join(BASE_DIR, "logs", "mule_results.db")
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DB_PATH = os.path.join(BASE_DIR, "logs", os.path.join("data", "mule_results.db"))
 
 def setup_ip_tracker():
     conn = sqlite3.connect(DB_PATH)

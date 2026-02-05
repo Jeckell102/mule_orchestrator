@@ -5,13 +5,22 @@ import sqlite3
 import re
 from datetime import datetime
 
-# --- CONFIGURATION ---
-INCOMING_FILE = "incoming.txt"
-DB_NAME = "aegis_master.db"
-PROJECT_ROOT = os.getcwd()
+# --- CONFIGURATION (UPDATED FOR MODULAR STRUCTURE) ---
+# Get the directory where this script lives (mule_core)
+CORE_DIR = os.path.dirname(os.path.abspath(__file__))
+# Get the project root (one level up)
+BASE_DIR = os.path.dirname(CORE_DIR)
+
+# Define paths relative to the Project Root
+INCOMING_FILE = os.path.join(BASE_DIR, "docs", os.path.join("docs", "incoming.txt"))
+DB_PATH = os.path.join(BASE_DIR, "data", os.path.join("data", "aegis_master.db"))
+PROJECT_ROOT = BASE_DIR
 
 def init_db():
-    conn = sqlite3.connect(DB_NAME)
+    # Ensure data directory exists
+    os.makedirs(os.path.dirname(DB_PATH), exist_ok=True)
+    
+    conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS ip_assets (
@@ -30,12 +39,13 @@ def init_db():
 
 def periodic_audit():
     try:
-        conn = sqlite3.connect(DB_NAME)
+        conn = sqlite3.connect(DB_PATH)
         cursor = conn.cursor()
         cursor.execute("SELECT COUNT(*), MAX(created_at), summary FROM ip_assets")
         row = cursor.fetchone()
         if row and row[0] > 0:
-            print(f"📊 [DATABASE AUDIT]: {row[0]} Assets secured. Latest: {row[2][:30]}...")
+            summary = row[2][:30] if row[2] else "No Summary"
+            print(f"📊 [DATABASE AUDIT]: {row[0]} Assets secured. Latest: {summary}...")
         else:
             print("📊 [DATABASE AUDIT]: Database is healthy but empty.")
         conn.close()
@@ -47,7 +57,7 @@ def process_ip_payloads(raw_content):
     matches = re.findall(pattern, raw_content)
     if not matches:
         return raw_content, False
-    conn = sqlite3.connect(DB_NAME)
+    conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
     processed_count = 0
     for json_str in matches:
@@ -75,36 +85,41 @@ def deploy_code():
     if not os.path.exists(INCOMING_FILE): return
     with open(INCOMING_FILE, "r") as f: raw_content = f.read()
     if not raw_content.strip(): return
-    print(f"👀 [SCANNING]: Processing {len(raw_content)} bytes...")
+    print(f"👀 [SCANNING]: Processing {len(raw_content)} bytes from {INCOMING_FILE}...")
     clean_content, ip_found = process_ip_payloads(raw_content)
     lines = clean_content.splitlines(keepends=True)
     current_file, buffer, code_found = None, [], False
     for line in lines:
         stripped = line.strip()
         if "START_MULE:" in stripped:
-            current_file = stripped.split("START_MULE:")[1].strip()
+            # Handle path if it starts with "mule_core/" or "scripts/" etc.
+            filename = stripped.split("START_MULE:")[1].strip()
+            # If the filename provided is relative, join it with PROJECT_ROOT
+            current_file = os.path.join(PROJECT_ROOT, filename)
             buffer, code_found = [], True
-            print(f"   ... Recording {current_file}")
+            print(f"   ... Recording {filename}")
             continue
         if "STOP_MULE" in stripped:
             if current_file:
-                file_path = os.path.join(PROJECT_ROOT, current_file)
                 # --- NEW LOGIC: Create parent directories if they don't exist ---
-                os.makedirs(os.path.dirname(file_path), exist_ok=True)
+                os.makedirs(os.path.dirname(current_file), exist_ok=True)
                 final_code = [l for l in buffer if not l.strip().startswith("```")]
-                with open(file_path, "w") as f: f.write("".join(final_code).strip())
-                print(f"✅ [SAVED]: {current_file}")
+                with open(current_file, "w") as f: f.write("".join(final_code).strip())
+                print(f"✅ [SAVED]: {os.path.relpath(current_file, PROJECT_ROOT)}")
                 current_file = None
             continue
         if current_file: buffer.append(line)
     if ip_found or code_found:
         with open(INCOMING_FILE, "w") as f: f.write("")
-        print("扫 Buffer cleared.")
+        print("🧹 Buffer cleared.")
         periodic_audit()
 
 if __name__ == "__main__":
     init_db()
-    print(f"🚀 [MULE_SYNC v10]: Ready (Directory Auto-Create Enabled)...")
+    print(f"🚀 [MULE_SYNC v11]: Modular Edition Active")
+    print(f"📂 Watching: {INCOMING_FILE}")
+    print(f"💾 Database: {DB_PATH}")
+    
     last_mtime = 0
     while True:
         try:

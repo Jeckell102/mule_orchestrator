@@ -8,7 +8,7 @@ from google import genai
 from google.genai import types
 
 # --- PATH RESOLUTION ---
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 def get_path(f, sub=""): return os.path.join(BASE_DIR, sub, f)
 
 class AegisGardener:

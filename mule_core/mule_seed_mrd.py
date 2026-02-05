@@ -3,9 +3,9 @@ import csv
 import os
 
 # --- CONFIGURATION ---
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-DB_PATH = os.path.join(BASE_DIR, "logs", "mule_results.db")
-CSV_PATH = os.path.join(BASE_DIR, "requirements.csv")
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DB_PATH = os.path.join(BASE_DIR, "logs", os.path.join("data", "mule_results.db"))
+CSV_PATH = os.path.join(BASE_DIR, os.path.join("data", "requirements.csv"))
 
 def seed_mrd():
     """Reads requirements.csv and updates the Master Requirements Database."""

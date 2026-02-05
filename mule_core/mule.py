@@ -8,9 +8,9 @@ import warnings
 import re
 
 # --- CONFIGURATION ---
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 LOG_DIR = os.path.join(BASE_DIR, "logs")
-DB_PATH = os.path.join(LOG_DIR, "mule_results.db")
+DB_PATH = os.path.join(LOG_DIR, os.path.join("data", "mule_results.db"))
 PROMPTS_DIR = os.path.join(BASE_DIR, "prompts")
 
 warnings.filterwarnings("ignore")
@@ -66,7 +66,7 @@ def inject_file_context(prompt):
     for word in words:
         clean_word = word.strip("',.\":")
         if os.path.isfile(os.path.join(BASE_DIR, clean_word)):
-            if clean_word in ["mule.py", "mule_results.db"] or clean_word.endswith(".db"):
+            if clean_word in ["mule.py", os.path.join("data", "mule_results.db")] or clean_word.endswith(".db"):
                 continue
                 
             try:
