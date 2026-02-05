@@ -9,3 +9,4 @@ venv/
 .vscode/*.db-wal
 .vscode/ipch/
 node_modules/
+node_modules/
