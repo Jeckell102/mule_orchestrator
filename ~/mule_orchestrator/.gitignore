@@ -1,0 +1,21 @@
+Plaintext
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.env
+
+# ROS 2 Artifacts
+build/
+install/
+log/
+logs/
+
+# Development / OS
+.DS_Store
+*.swp
+*.bak
+*.odt#
+aegis_master.db
+mule_results.db
